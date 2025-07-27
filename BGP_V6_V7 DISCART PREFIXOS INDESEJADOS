@@ -1,0 +1,53 @@
+################################ V6 ###################################
+
+
+# Regras de discard para prefixos indesejados ou inválidos
+/routing filter
+add chain=IPv4-padrao-IN prefix=0.0.0.0/8 prefix-length=8-32 action=discard
+add chain=IPv4-padrao-IN prefix=10.0.0.0/8 prefix-length=8-32 action=discard
+add chain=IPv4-padrao-IN prefix=100.64.0.0/10 prefix-length=10-32 action=discard
+add chain=IPv4-padrao-IN prefix=127.0.0.0/8 prefix-length=8-32 action=discard
+add chain=IPv4-padrao-IN prefix=169.254.0.0/16 prefix-length=16-32 action=discard
+add chain=IPv4-padrao-IN prefix=172.16.0.0/12 prefix-length=12-32 action=discard
+add chain=IPv4-padrao-IN prefix=192.0.0.0/24 prefix-length=24-32 action=discard
+add chain=IPv4-padrao-IN prefix=192.88.99.0/24 prefix-length=24-32 action=discard
+add chain=IPv4-padrao-IN prefix=192.168.0.0/16 prefix-length=16-32 action=discard
+add chain=IPv4-padrao-IN prefix=198.18.0.0/15 prefix-length=15-32 action=discard
+add chain=IPv4-padrao-IN prefix=198.51.100.0/24 prefix-length=24-32 action=discard
+add chain=IPv4-padrao-IN prefix=203.0.113.0/24 prefix-length=24-32 action=discard
+add chain=IPv4-padrao-IN prefix=224.0.0.0/4 prefix-length=4-32 action=discard
+add chain=IPv4-padrao-IN prefix=240.0.0.0/4 prefix-length=4-32 action=discard
+add chain=IPv4-padrao-IN prefix=187.16.192.0/19 prefix-length=19-32 action=discard
+add chain=IPv4-padrao-IN prefix=200.192.108.0/22 prefix-length=22-32 action=discard
+add chain=IPv4-padrao-IN prefix=200.219.138.0/23 prefix-length=23-32 action=discard
+add chain=IPv4-padrao-IN prefix=200.219.140.0/23 prefix-length=23-32 action=discard
+add chain=IPv4-padrao-IN prefix=200.219.143.0/24 prefix-length=24-32 action=discard
+add chain=IPv4-padrao-IN prefix=200.219.144.0/22 prefix-length=22-32 action=discard
+add chain=IPv4-padrao-IN prefix=200.194.147.0/24 prefix-length=24-32 action=discard
+
+
+################################ V7 ###################################
+
+# Adiciona regras de descarte para prefixos inválidos ou reservados
+/routing/filter/rule
+add chain=IPv4-padrao-IN rule="if (dst in 0.0.0.0/8) { reject }"
+add chain=IPv4-padrao-IN rule="if (dst in 10.0.0.0/8) { reject }"
+add chain=IPv4-padrao-IN rule="if (dst in 100.64.0.0/10) { reject }"
+add chain=IPv4-padrao-IN rule="if (dst in 127.0.0.0/8) { reject }"
+add chain=IPv4-padrao-IN rule="if (dst in 169.254.0.0/16) { reject }"
+add chain=IPv4-padrao-IN rule="if (dst in 172.16.0.0/12) { reject }"
+add chain=IPv4-padrao-IN rule="if (dst in 192.0.0.0/24) { reject }"
+add chain=IPv4-padrao-IN rule="if (dst in 192.88.99.0/24) { reject }"
+add chain=IPv4-padrao-IN rule="if (dst in 192.168.0.0/16) { reject }"
+add chain=IPv4-padrao-IN rule="if (dst in 198.18.0.0/15) { reject }"
+add chain=IPv4-padrao-IN rule="if (dst in 198.51.100.0/24) { reject }"
+add chain=IPv4-padrao-IN rule="if (dst in 203.0.113.0/24) { reject }"
+add chain=IPv4-padrao-IN rule="if (dst in 224.0.0.0/4) { reject }"
+add chain=IPv4-padrao-IN rule="if (dst in 240.0.0.0/4) { reject }"
+add chain=IPv4-padrao-IN rule="if (dst in 187.16.192.0/19) { reject }"
+add chain=IPv4-padrao-IN rule="if (dst in 200.192.108.0/22) { reject }"
+add chain=IPv4-padrao-IN rule="if (dst in 200.219.138.0/23) { reject }"
+add chain=IPv4-padrao-IN rule="if (dst in 200.219.140.0/23) { reject }"
+add chain=IPv4-padrao-IN rule="if (dst in 200.219.143.0/24) { reject }"
+add chain=IPv4-padrao-IN rule="if (dst in 200.219.144.0/22) { reject }"
+add chain=IPv4-padrao-IN rule="if (dst in 200.194.147.0/24) { reject }"
